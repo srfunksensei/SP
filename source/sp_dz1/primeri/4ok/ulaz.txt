@@ -1,0 +1,19 @@
+BEG             ; count the bits in a number
+USE WRITE,TEMP ; external symbols
+TXT	       ; default, even if not here
+INI                  ; Read(A)
+LOOP                         ; REPEAT
+SHR                  ;  A := A DIV 2
+BCC     EVEN         ;  IF A MOD 2 # 0 THEN
+STA     TEMP         ;    TEMP := A
+LDA     BITS
+INC
+STA     BITS         ;    BITS := BITS + 1
+LDA     TEMP         ;    A := TEMP
+EVEN    BNZ     LOOP         ; UNTIL A = 0
+LDA     BITS         ;
+JSR     WRITE        ; Write(BITS)
+HLT                  ; terminate execution
+DAT
+BITS    DC      0            ;     BITS : BYTE
+END

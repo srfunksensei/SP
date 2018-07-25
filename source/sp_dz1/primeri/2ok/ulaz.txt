@@ -1,0 +1,34 @@
+;=====================================
+;  ucitava 2 broja A i B, smesta ih u memoriju i ispisuje redom:
+;  A+B
+;  A-B
+;=====================================
+		BEG				
+		DEF    START
+;=====================================		
+    BSS
+    DS   2 ; reserve locations for 2 numbers
+;=====================================    		
+		TXT
+START
+    ; koristicemo apsolutno adresiranje
+    CLX   
+    
+    ; ucitavanje 		
+		INI  
+		STA   0
+    INI  
+    STA   1
+  
+    ; zbir
+    LDI   0
+    ADD   1
+    OTI
+
+    ; razlika
+    LDI   0
+    SUB   1
+    OTI
+
+		HLT
+    END

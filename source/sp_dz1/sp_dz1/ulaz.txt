@@ -1,0 +1,16 @@
+BEG
+TXT
+START        LDA INDEX   ; Punjenje A sadrzajem memorijske lokacije sa adresom B
+                TAX	 ; Kopiranje vrednosti akumulatora A u indeksni registar X
+                LDX START; Punjenje A sadrzajem memorijske lokacije sa adresom B+X
+                OTI	 ; Ispis vrednosti akumulatora A na izlazu kao oznacenog celog broja
+                CMP FINISH ; Poredenje sadrzaja A sa sadzajem memorijske lokacije sa adresom B
+                BZE FINISH ; Skok na adresu zadatu sa B ako indikator Z ima vrednost 1
+                LDA INDEX; Punjenje A sadrzajem memorijske lokacije sa adresom B
+                INC	 ; Uvecavanje akumulatora A za 1
+                STA INDEX; Upis vrednosti akumulatora A u memorijsku lokaciju sa adresom B
+                BRN START; Skok na adresu zadatu sa B
+FINISH         HLT
+DAT
+INDEX DC 0
+END

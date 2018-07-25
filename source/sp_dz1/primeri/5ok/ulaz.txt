@@ -1,0 +1,23 @@
+;=====================================
+;  Provera steka
+;  ucitava 3 broja i ispisuje ih u inverznom redosledu
+;=====================================
+		BEG				
+		DEF    START		
+		TXT
+;=====================================		
+START 		
+		INI     ; read A
+		PSH
+		INI     ; read B
+		PSH
+		INI     ; read C
+		PSH
+		POP
+		OTI     ; write C
+		POP
+		OTI     ; write B
+		POP
+		OTI     ; write A
+		HLT
+    END

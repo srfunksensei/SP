@@ -1,0 +1,35 @@
+.386
+.model flat, stdcall
+
+PUBLIC main
+
+INCLUDELIB kernel32.lib
+
+ExitProcess proto:dword
+
+.data
+dSTART	DB	0
+BLA	DB	0
+
+.code
+
+
+main:
+         mov ECX, 0
+         push AX
+         mov AL, BLA
+         push AX
+         call _POTPR
+         push AX
+_LABELA1:	push AX
+         add AL, BLA
+         jc _LABELA2
+         add AL, BLA
+_LABELA2:	jnz _LABELA1
+         invoke ExitProcess, 0
+_POTPR:	push AX
+         mov AL, BLA
+         test AL, AL
+         jnz _LABELA3
+_LABELA3:	pop EIP
+end main

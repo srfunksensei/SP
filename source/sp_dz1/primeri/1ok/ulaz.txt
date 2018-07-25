@@ -1,0 +1,21 @@
+	BEG 
+	TXT
+	INI                  ; Read(A)
+LOOP                         ; REPEAT
+	SHR                  ;  A := A DIV 2	
+	BCC     EVEN        ;  IF A MOD 2 # 0 THEN
+ 	STA     TEMP         ;    TEMP := A
+  	LDA     BITS
+   	INC
+  	STA     BITS         ;    BITS := BITS + 1
+      	LDA     TEMP         ;    A := TEMP
+EVEN  BNZ     LOOP         ; UNTIL A = 0
+       	LDA     BITS         ;
+       	OTI                  ; Write(BITS)
+        	HLT                  ; terminate execution
+	BSS
+TEMP    DS      1            ; VAR TEMP : BYTE
+	DAT
+BITS    DC      0            ;     BITS : BYTE
+
+        END

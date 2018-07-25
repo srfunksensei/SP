@@ -1,0 +1,23 @@
+	BEG
+TXT	
+	PSH
+        LDA BLA
+        PSH
+        JSR POTPR
+        PSH
+LABELA1 PSH
+        ADD BLA
+        BCS LABELA2
+        ADD BLA
+LABELA2 BNZ LABELA1
+        HLT
+
+POTPR   PSH
+        LDA BLA
+        BNZ LABELA3
+LABELA3 RET
+
+DAT
+BLA	DC 0
+
+        END

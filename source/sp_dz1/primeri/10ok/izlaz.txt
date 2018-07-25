@@ -1,0 +1,23 @@
+LINK
+3 0 7
+# segments	(name	base	len	desc)
+
+		.text	0	19	RP
+
+		.bss	19	1	RW
+
+		.data	20	2	RWP
+
+# symbols	(name	value	seg	type)
+
+# relocations	(loc	seg	ref	type)	(name	op	place/len)
+		2	1	3	A1	A	+	20
+		5	1	3	A1	B	+	21
+		7	1	1	A1	SABERI	+	12
+		9	1	2	A1	ZBIR	+	1
+		13	1	3	A1	A	+	20
+		15	1	3	A1	B	+	21
+		17	1	2	A1	ZBIR	+	1
+# data (one line per segment)
+10 30 20 10 30 21 60 12 25 19 14 24 25 20 32 21 30 19 23 
+0 0 

@@ -1,0 +1,16 @@
+LINK
+2 2 0
+# segments	(name	base	len	desc)
+
+		.text	0	2	RP
+
+		.bss	2	1	RW
+
+# symbols	(name	value	seg	type)
+
+		TEMP	2	2	D
+		WRITE	0	1	D
+# relocations	(loc	seg	ref	type)	(name	op	place/len)
+# data (one line per segment)
+14 23 
+

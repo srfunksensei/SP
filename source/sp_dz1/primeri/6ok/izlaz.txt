@@ -1,0 +1,18 @@
+LINK
+1 0 6
+# segments	(name	base	len	desc)
+
+		.text	0	17	RP
+
+# symbols	(name	value	seg	type)
+
+# relocations	(loc	seg	ref	type)	(name	op	place/len)
+		2	1	0	A1	BLA	+
+		5	1	1	A1	LABELA1	+	7
+		9	1	0	A1	BLA	+
+		11	1	1	A1	LABELA2	+	14
+		13	1	0	A1	BLA	+
+		15	1	1	A1	LABELA1	+	7
+# data (one line per segment)
+19 25 0 19 59 7 19 19 32 0 59 14 32 0 55 7 24 
+

@@ -1,0 +1,8 @@
+BEG
+DEF WRITE,TEMP      ; exported symbols
+TXT
+WRITE   OTI                  ; Write(BITS)
+RET                  ; return to main program
+BSS
+TEMP    DS      1            ; VAR TEMP : BYTE
+END

@@ -1,0 +1,100 @@
+.386
+.model flat, stdcall
+
+PUBLIC TEMP,WRITE
+STD_OUTPUT_HANDLE equ -11
+PUBLIC main
+
+INCLUDELIB kernel32.lib
+
+ExitProcess proto:dword
+WriteConsoleA proto :dword, :dword, :dword, :dword, :dword
+
+GetStdHandle proto :dword
+
+.data
+dSTART	DB	0
+TEMP	DB	1	DUP(0)
+stdout	DD	0
+
+.code
+printc	PROC par1:dword, par2:dword
+         ; push EBP
+         ; mov EBP, ESP
+         push EAX
+         push EBX
+         push ECX
+         cmp stdout, 0
+         jne dalje_printc
+         invoke GetStdHandle, STD_OUTPUT_HANDLE
+         mov stdout, EAX
+dalje_printc:
+         mov ECX, [par1]
+         mov EBX, EBP 
+         add EBX, 8
+         mov EAX, [par2]
+         invoke WriteConsoleA, stdout, EAX, ECX, EBX, 0
+         pop ECX	
+         pop EBX
+         pop EAX
+         ; pop EBP
+         ret
+printc	ENDP
+
+writedec PROC
+         push EAX
+         push EBX
+         push ECX
+          push EDX
+         mov AH, 0
+         mov CL, 10
+          mov EBX, 0
+         mov EDX, 0
+         mov DL, AL
+         and DL, 80h
+         jnz obrni
+         jmp ??write
+obrni: neg AL
+??write:div CL
+         xchg AH, AL
+         add AL,'0'
+         push EAX
+         inc EBX
+         xchg AH, AL   
+         cmp AL, 0
+         je minusprovera
+         mov AH, 0
+         jmp ??write
+minusprovera:
+         cmp DL, 80h
+         je dodajminus
+         jmp kraj_wrdec
+dodajminus:
+         push '-'
+         push ESP
+         push 1
+         call printc
+         add ESP, 4
+kraj_wrdec:
+         cmp EBX, 0
+         je kraj_skroz
+         push ESP
+         push 1
+         call printc
+         add ESP,4
+         dec EBX
+         jmp kraj_wrdec
+kraj_skroz:
+         pop EDX
+         pop ECX
+         pop EBX
+         pop EAX
+         ret
+writedec ENDP
+
+
+main:
+         mov ECX, 0
+WRITE	call writedec
+         pop EIP
+end main

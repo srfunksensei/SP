@@ -1,0 +1,18 @@
+BEG
+DEF START
+TXT
+START INI
+loop STA nnn
+LDI suma
+ADD nnn
+STA suma
+LDI nnn
+DEC
+BNZ loop
+LDI suma
+OTI     	      
+HLT
+DAT
+nnn DC 0
+suma DC 0
+END

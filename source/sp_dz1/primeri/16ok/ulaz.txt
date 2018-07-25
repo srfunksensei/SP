@@ -1,0 +1,8 @@
+	BEG 
+	TXT
+	LDI 20+20
+	OTI
+LAB1	CLC
+	ADD LAB1
+	HLT
+	END

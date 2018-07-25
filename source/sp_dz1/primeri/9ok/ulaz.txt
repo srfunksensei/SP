@@ -1,0 +1,25 @@
+     BEG
+USE LAB
+DEF B
+USE LAB1,LAB2
+M EQU LAB+91
+TXT
+	LDI B+190-TEMP
+LOOP   	SHR
+        BCC EVEN
+        STA BITS-TEMP+10
+        LDA BITS-5
+        INC
+        STA LAB1-LAB
+        LDA LAB2
+EVEN        BNZ LOOP
+        LDA 10-TEMP-M-EVEN
+        OTI
+        HLT
+        DAT
+TEMP    DC 150-BITS-M
+BITS    DC LAB1-B-BITS-TEMP+M
+	DC 20
+        BSS
+B 	DS 1
+        END

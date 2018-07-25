@@ -1,0 +1,13 @@
+;=====================================
+;  Provera ulaza/izlaza
+;  Ucitava broj -> Ispisuje broj
+;=====================================
+		BEG				
+		DEF    START		
+		TXT
+;=====================================		
+START 		
+		INI
+		OTI
+		HLT
+    END

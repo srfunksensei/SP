@@ -1,0 +1,14 @@
+	BEG
+TXT
+	PSH
+        LDA BLA
+        PSH
+        BCS LABELA1
+        PSH
+LABELA1 PSH
+        ADD BLA
+        BCS LABELA2
+        ADD BLA
+LABELA2 BNZ LABELA1
+        HLT
+        END
